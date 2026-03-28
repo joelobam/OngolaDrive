@@ -26,7 +26,7 @@ export default function DriverToggleActive({ driverId, isActive }: { driverId: s
       className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors disabled:opacity-50 ${
         isActive
           ? 'text-red-600 bg-red-50 hover:bg-red-100'
-          : 'text-green-600 bg-green-50 hover:bg-green-100'
+          : 'text-primary bg-primary-50 hover:bg-primary-light'
       }`}
     >
       {isActive ? <ToggleRight size={15} /> : <ToggleLeft size={15} />}

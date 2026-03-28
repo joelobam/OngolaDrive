@@ -42,9 +42,9 @@ const STATUS_COLORS: Record<string, string> = {
   preparing:  'text-purple-600 bg-purple-50',
   ready:      'text-indigo-600 bg-indigo-50',
   delivering: 'text-orange-600 bg-orange-50',
-  delivered:  'text-green-600 bg-green-50',
+  delivered:  'text-primary bg-primary-50',
   cancelled:  'text-red-600 bg-red-50',
-  picked_up:  'text-green-600 bg-green-50',
+  picked_up:  'text-primary bg-primary-50',
 }
 
 interface Props {
@@ -88,7 +88,7 @@ export default function OrderStatusTracker({ orderId, initialStatus, deliveryTyp
             return (
               <div key={step.key} className="flex items-center gap-3 relative">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center z-10 flex-shrink-0 transition-colors ${
-                  done ? 'bg-green-500' : 'bg-gray-100'
+                  done ? 'bg-primary-500' : 'bg-gray-100'
                 } ${active ? 'ring-2 ring-green-300 ring-offset-1' : ''}`}>
                   <Icon size={14} className={done ? 'text-white' : 'text-gray-400'} />
                 </div>
@@ -96,7 +96,7 @@ export default function OrderStatusTracker({ orderId, initialStatus, deliveryTyp
                   {step.label}
                 </span>
                 {active && (
-                  <span className="ml-auto text-xs text-green-600 font-medium animate-pulse">En cours</span>
+                  <span className="ml-auto text-xs text-primary font-medium animate-pulse">En cours</span>
                 )}
               </div>
             )

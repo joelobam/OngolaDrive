@@ -10,6 +10,16 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Palette OngolaDrive — rouge et bleu marine du logo */
+  --color-primary:       #E8231A;
+  --color-primary-dark:  #C41A12;
+  --color-primary-light: #FEE2E2;
+  --color-primary-50:    #FFF5F5;
+
+  --color-navy:          #1E3A6E;
+  --color-navy-dark:     #152D57;
+  --color-navy-light:    #EEF2F8;
 }
 
 @media (prefers-color-scheme: dark) {

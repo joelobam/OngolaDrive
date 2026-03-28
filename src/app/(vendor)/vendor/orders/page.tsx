@@ -15,7 +15,7 @@ const STATUS_CONFIG: Record<string, { label: string; className: string }> = {
   preparing:  { label: 'En préparation',  className: 'bg-purple-100 text-purple-700' },
   ready:      { label: 'Prête',           className: 'bg-indigo-100 text-indigo-700' },
   picked_up:  { label: 'Récupérée',       className: 'bg-orange-100 text-orange-700' },
-  delivered:  { label: 'Livrée',          className: 'bg-green-100 text-green-700' },
+  delivered:  { label: 'Livrée',          className: 'bg-primary-light text-primary-dark' },
   cancelled:  { label: 'Annulée',         className: 'bg-red-100 text-red-700' },
 }
 

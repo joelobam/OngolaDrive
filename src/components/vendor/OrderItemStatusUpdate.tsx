@@ -29,7 +29,7 @@ export default function OrderItemStatusUpdate({ itemId, currentStatus }: { itemI
     <button
       onClick={update}
       disabled={loading}
-      className="px-3 py-1.5 bg-green-600 text-white text-xs font-medium rounded-lg hover:bg-green-700 disabled:opacity-50 transition-colors whitespace-nowrap"
+      className="px-3 py-1.5 bg-primary text-white text-xs font-medium rounded-lg hover:bg-primary-dark disabled:opacity-50 transition-colors whitespace-nowrap"
     >
       {loading ? '...' : next.label}
     </button>

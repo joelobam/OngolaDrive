@@ -41,7 +41,7 @@ export default function CreateUserModal() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
+        className="flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
       >
         <UserPlus size={15} />
         Ajouter un utilisateur
@@ -63,7 +63,7 @@ export default function CreateUserModal() {
                 <input
                   required value={form.full_name} onChange={e => set('full_name', e.target.value)}
                   placeholder="Jean Dupont"
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
 
@@ -72,7 +72,7 @@ export default function CreateUserModal() {
                 <input
                   required type="email" value={form.email} onChange={e => set('email', e.target.value)}
                   placeholder="jean@exemple.cm"
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
 
@@ -82,7 +82,7 @@ export default function CreateUserModal() {
                   required type="password" value={form.password} onChange={e => set('password', e.target.value)}
                   placeholder="8 caractères minimum"
                   minLength={8}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
 
@@ -91,7 +91,7 @@ export default function CreateUserModal() {
                 <input
                   value={form.phone} onChange={e => set('phone', e.target.value)}
                   placeholder="+237 6XX XX XX XX"
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
 
@@ -99,7 +99,7 @@ export default function CreateUserModal() {
                 <label className="block text-xs font-medium text-gray-600 mb-1">Rôle</label>
                 <select
                   value={form.role} onChange={e => set('role', e.target.value)}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   {ROLES.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
                 </select>
@@ -110,7 +110,7 @@ export default function CreateUserModal() {
               <div className="flex gap-3 pt-2">
                 <button
                   type="submit" disabled={loading}
-                  className="flex-1 bg-green-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-green-700 disabled:opacity-50 transition-colors"
+                  className="flex-1 bg-primary text-white py-2 rounded-lg text-sm font-medium hover:bg-primary-dark disabled:opacity-50 transition-colors"
                 >
                   {loading ? 'Création...' : 'Créer'}
                 </button>

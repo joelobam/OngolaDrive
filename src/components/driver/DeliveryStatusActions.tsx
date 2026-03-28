@@ -19,7 +19,7 @@ const ACTIONS: Record<string, { label: string; icon: typeof Package; color: stri
   picked_up: {
     label: 'Confirmer la livraison',
     icon: CheckCircle,
-    color: 'bg-green-600 hover:bg-green-700',
+    color: 'bg-primary hover:bg-primary-dark',
   },
 }
 

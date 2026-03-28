@@ -110,7 +110,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
             <span>Livraison</span><span>{order.delivery_fee > 0 ? formatPrice(order.delivery_fee) : 'Gratuit'}</span>
           </div>
           <div className="flex justify-between font-semibold text-gray-800 pt-1.5 border-t border-gray-100 mt-1.5">
-            <span>Total</span><span className="text-green-600">{formatPrice(order.total)}</span>
+            <span>Total</span><span className="text-primary">{formatPrice(order.total)}</span>
           </div>
           {payment && (
             <p className="text-xs text-gray-400 mt-1">{PAYMENT_LABELS[payment.method] ?? payment.method}</p>

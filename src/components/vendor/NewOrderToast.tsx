@@ -33,10 +33,10 @@ export default function NewOrderToast({ shopId }: Props) {
         {alerts.map(alert => (
           <div
             key={alert.id}
-            className="pointer-events-auto flex items-start gap-3 bg-white border border-green-200 rounded-2xl shadow-xl px-4 py-3 w-80 animate-slide-in"
+            className="pointer-events-auto flex items-start gap-3 bg-white border border-primary-light rounded-2xl shadow-xl px-4 py-3 w-80 animate-slide-in"
           >
-            <div className="flex-shrink-0 w-9 h-9 bg-green-100 rounded-xl flex items-center justify-center">
-              <ShoppingBag size={18} className="text-green-600" />
+            <div className="flex-shrink-0 w-9 h-9 bg-primary-light rounded-xl flex items-center justify-center">
+              <ShoppingBag size={18} className="text-primary" />
             </div>
 
             <div className="flex-1 min-w-0">
@@ -46,7 +46,7 @@ export default function NewOrderToast({ shopId }: Props) {
               <p className="text-xs text-gray-500 mt-0.5 truncate">
                 {alert.quantity}× {alert.productName}
               </p>
-              <p className="text-xs font-medium text-green-600 mt-0.5">
+              <p className="text-xs font-medium text-primary mt-0.5">
                 {alert.subtotal.toLocaleString('fr-CM')} FCFA
               </p>
             </div>

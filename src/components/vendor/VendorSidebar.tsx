@@ -33,16 +33,16 @@ export default function VendorSidebar({ fullName, avatarUrl, shopName, shopStatu
   return (
     <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col z-20">
       <div className="px-6 py-5 border-b border-gray-100">
-        <h1 className="text-xl font-bold text-green-600">OngolaDrive</h1>
+        <h1 className="text-xl font-bold text-primary">OngolaDrive</h1>
         <p className="text-xs text-gray-400 mt-0.5">Espace vendeur</p>
       </div>
 
       {shopName && (
-        <div className="px-4 py-3 mx-3 mt-3 bg-green-50 rounded-lg">
+        <div className="px-4 py-3 mx-3 mt-3 bg-primary-50 rounded-lg">
           <p className="text-xs text-gray-400 mb-0.5">Boutique</p>
           <p className="text-sm font-semibold text-gray-800 truncate">{shopName}</p>
           <div className="flex items-center gap-1.5 mt-1">
-            <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-green-500' : 'bg-gray-300'}`} />
+            <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-primary-500' : 'bg-gray-300'}`} />
             <span className="text-xs text-gray-500">
               {shopStatus === 'pending' ? 'En attente de validation' : isOpen ? 'Ouverte' : 'Fermée'}
             </span>
@@ -59,12 +59,12 @@ export default function VendorSidebar({ fullName, avatarUrl, shopName, shopStatu
               href={href}
               className={cn(
                 'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
-                active ? 'bg-green-50 text-green-700' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                active ? 'bg-primary-50 text-primary-dark' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
               )}
             >
               <Icon size={18} />
               <span className="flex-1">{label}</span>
-              {active && <ChevronRight size={14} className="text-green-400" />}
+              {active && <ChevronRight size={14} className="text-primary/70" />}
             </Link>
           )
         })}
@@ -75,7 +75,7 @@ export default function VendorSidebar({ fullName, avatarUrl, shopName, shopStatu
           {avatarUrl ? (
             <img src={avatarUrl} alt={fullName} className="w-9 h-9 rounded-full object-cover" />
           ) : (
-            <div className="w-9 h-9 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm font-semibold">
+            <div className="w-9 h-9 rounded-full bg-primary-light text-primary-dark flex items-center justify-center text-sm font-semibold">
               {getInitials(fullName)}
             </div>
           )}

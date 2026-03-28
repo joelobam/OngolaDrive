@@ -80,11 +80,11 @@ export default async function DeliveryDetailPage({ params }: { params: Promise<{
       <div className="flex items-start justify-between mb-5">
         <div>
           <h1 className="text-xl font-bold text-gray-900">{order?.order_number}</h1>
-          <p className={`text-sm mt-1 font-medium ${isDone ? 'text-green-600' : 'text-orange-500'}`}>
+          <p className={`text-sm mt-1 font-medium ${isDone ? 'text-primary' : 'text-orange-500'}`}>
             {STATUS_LABELS[delivery.status] ?? delivery.status}
           </p>
         </div>
-        <p className="text-lg font-bold text-green-600">{formatPrice(order?.total ?? 0)}</p>
+        <p className="text-lg font-bold text-primary">{formatPrice(order?.total ?? 0)}</p>
       </div>
 
       {/* GPS tracker actif si livraison en cours */}
@@ -98,7 +98,7 @@ export default async function DeliveryDetailPage({ params }: { params: Promise<{
         <p className="font-semibold text-gray-800">{order?.customer?.full_name}</p>
         {order?.customer?.phone && (
           <a href={`tel:${order.customer.phone}`}
-            className="flex items-center gap-2 mt-2 text-sm text-green-600 font-medium bg-green-50 px-3 py-2 rounded-lg hover:bg-green-100 transition-colors"
+            className="flex items-center gap-2 mt-2 text-sm text-primary font-medium bg-primary-50 px-3 py-2 rounded-lg hover:bg-primary-light transition-colors"
           >
             <Phone size={15} /> {order.customer.phone}
           </a>
@@ -115,7 +115,7 @@ export default async function DeliveryDetailPage({ params }: { params: Promise<{
         </h2>
         <p className="font-semibold text-gray-800">{order?.market?.name}</p>
         <p className="text-sm text-gray-500 flex items-center gap-1 mt-1">
-          <MapPin size={13} className="text-green-500" />
+          <MapPin size={13} className="text-primary" />
           {order?.market?.address ?? order?.market?.city}
         </p>
       </div>
@@ -146,7 +146,7 @@ export default async function DeliveryDetailPage({ params }: { params: Promise<{
         ))}
         <div className="flex justify-between px-4 py-3 border-t border-gray-100 text-sm font-semibold text-gray-800">
           <span>Total commande</span>
-          <span className="text-green-600">{formatPrice(order?.total ?? 0)}</span>
+          <span className="text-primary">{formatPrice(order?.total ?? 0)}</span>
         </div>
       </div>
 
@@ -156,7 +156,7 @@ export default async function DeliveryDetailPage({ params }: { params: Promise<{
       )}
 
       {isDone && (
-        <div className="bg-green-50 border border-green-100 rounded-xl p-4 text-center text-sm text-green-700 font-medium">
+        <div className="bg-primary-50 border border-primary-light rounded-xl p-4 text-center text-sm text-primary-dark font-medium">
           ✅ Livraison terminée avec succès
         </div>
       )}

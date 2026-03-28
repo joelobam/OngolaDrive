@@ -1,5 +1,5 @@
 const CONFIG = {
-  active:    { label: 'Actif',     className: 'bg-green-100 text-green-700' },
+  active:    { label: 'Actif',     className: 'bg-primary-light text-primary-dark' },
   pending:   { label: 'En attente', className: 'bg-yellow-100 text-yellow-700' },
   suspended: { label: 'Suspendu',  className: 'bg-red-100 text-red-700' },
 } as const

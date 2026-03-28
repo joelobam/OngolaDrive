@@ -92,7 +92,7 @@ export default function ProductCard({ product, shopId, marketId, marketSlug }: P
               qty === 0 ? (
                 <button
                   onClick={handleAdd}
-                  className="w-8 h-8 bg-green-600 text-white rounded-lg flex items-center justify-center hover:bg-green-700 transition-colors"
+                  className="w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center hover:bg-primary-dark transition-colors"
                 >
                   <Plus size={16} />
                 </button>
@@ -107,7 +107,7 @@ export default function ProductCard({ product, shopId, marketId, marketSlug }: P
                   <span className="text-sm font-semibold text-gray-800 w-5 text-center">{qty}</span>
                   <button
                     onClick={() => updateQuantity(product.id, qty + 1)}
-                    className="w-7 h-7 bg-green-600 text-white rounded-lg flex items-center justify-center hover:bg-green-700 transition-colors"
+                    className="w-7 h-7 bg-primary text-white rounded-lg flex items-center justify-center hover:bg-primary-dark transition-colors"
                   >
                     <Plus size={13} />
                   </button>

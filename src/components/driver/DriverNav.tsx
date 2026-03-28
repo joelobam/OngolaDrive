@@ -27,7 +27,7 @@ export default function DriverNav() {
         const active = pathname === href.split('?')[0]
         return (
           <Link key={href} href={href}
-            className={cn('flex flex-col items-center gap-0.5 text-xs', active ? 'text-green-600' : 'text-gray-400')}
+            className={cn('flex flex-col items-center gap-0.5 text-xs', active ? 'text-primary' : 'text-gray-400')}
           >
             <Icon size={20} />
             <span>{label}</span>

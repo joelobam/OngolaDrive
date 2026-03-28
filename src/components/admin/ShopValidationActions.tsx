@@ -24,7 +24,7 @@ export default function ShopValidationActions({ shopId }: { shopId: string }) {
       <button
         onClick={() => handle('approve')}
         disabled={loading !== null}
-        className="flex items-center gap-1 px-3 py-1.5 bg-green-50 text-green-700 text-xs font-medium rounded-lg hover:bg-green-100 disabled:opacity-50 transition-colors"
+        className="flex items-center gap-1 px-3 py-1.5 bg-primary-50 text-primary-dark text-xs font-medium rounded-lg hover:bg-primary-light disabled:opacity-50 transition-colors"
       >
         <Check size={13} />
         Valider

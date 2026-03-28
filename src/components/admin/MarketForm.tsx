@@ -76,7 +76,7 @@ export default function MarketForm({ market }: Props) {
       <input
         {...register(name)}
         {...props}
-        className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+        className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
       />
       {errors[name] && <p className="text-red-500 text-xs mt-1">{errors[name]?.message as string}</p>}
     </div>
@@ -93,7 +93,7 @@ export default function MarketForm({ market }: Props) {
             <input
               {...register('name')}
               placeholder="Marché Mokolo"
-              className="flex-1 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="flex-1 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
             />
             <button
               type="button"
@@ -115,7 +115,7 @@ export default function MarketForm({ market }: Props) {
           {...register('description')}
           rows={3}
           placeholder="Décrivez le marché..."
-          className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
         />
       </div>
 
@@ -138,7 +138,7 @@ export default function MarketForm({ market }: Props) {
             min={0}
             max={100}
             step={0.5}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
           {errors.commission_rate && <p className="text-red-500 text-xs mt-1">{errors.commission_rate.message}</p>}
         </div>
@@ -146,7 +146,7 @@ export default function MarketForm({ market }: Props) {
           <label className="block text-sm font-medium text-gray-700 mb-1">Devise</label>
           <select
             {...register('currency')}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           >
             <option value="XAF">XAF — Franc CFA</option>
             <option value="EUR">EUR — Euro</option>
@@ -160,7 +160,7 @@ export default function MarketForm({ market }: Props) {
         <button
           type="submit"
           disabled={loading}
-          className="bg-green-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-green-700 disabled:opacity-50 transition-colors"
+          className="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-dark disabled:opacity-50 transition-colors"
         >
           {loading ? 'Enregistrement...' : market ? 'Mettre à jour' : 'Créer le marché'}
         </button>

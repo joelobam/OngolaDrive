@@ -24,8 +24,8 @@ export default async function PaymentSuccessPage({
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-sm w-full text-center">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
-          <CheckCircle2 size={32} className="text-green-600" />
+        <div className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mx-auto mb-5">
+          <CheckCircle2 size={32} className="text-primary" />
         </div>
 
         <h1 className="text-xl font-bold text-gray-900 mb-2">Paiement reçu !</h1>
@@ -41,7 +41,7 @@ export default async function PaymentSuccessPage({
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-500">Statut</span>
-              <span className="font-semibold text-green-600">
+              <span className="font-semibold text-primary">
                 {order.status === 'confirmed' ? 'Confirmée' : 'En cours de confirmation'}
               </span>
             </div>
@@ -52,7 +52,7 @@ export default async function PaymentSuccessPage({
           {order_id && (
             <Link
               href={`/orders/${order_id}`}
-              className="flex items-center justify-center gap-2 w-full bg-green-600 text-white py-3 rounded-xl font-medium hover:bg-green-700 transition-colors text-sm"
+              className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3 rounded-xl font-medium hover:bg-primary-dark transition-colors text-sm"
             >
               Suivre ma commande <ArrowRight size={16} />
             </Link>

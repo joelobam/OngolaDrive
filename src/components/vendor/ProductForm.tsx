@@ -98,14 +98,14 @@ export default function ProductForm({ product, shopId, categories }: Props) {
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Nom <span className="text-red-500">*</span></label>
           <div className="flex gap-2">
-            <input {...register('name')} placeholder="Tomates fraîches" className="flex-1 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+            <input {...register('name')} placeholder="Tomates fraîches" className="flex-1 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
             <button type="button" onClick={generateSlug} className="px-3 py-2.5 bg-gray-100 text-gray-600 text-xs rounded-lg hover:bg-gray-200 whitespace-nowrap">→ Slug</button>
           </div>
           {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Slug <span className="text-red-500">*</span></label>
-          <input {...register('slug')} placeholder="tomates-fraiches" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <input {...register('slug')} placeholder="tomates-fraiches" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
           {errors.slug && <p className="text-red-500 text-xs mt-1">{errors.slug.message}</p>}
         </div>
       </div>
@@ -113,21 +113,21 @@ export default function ProductForm({ product, shopId, categories }: Props) {
       {/* Description */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-        <textarea {...register('description')} rows={3} placeholder="Décrivez votre produit..." className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <textarea {...register('description')} rows={3} placeholder="Décrivez votre produit..." className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
       </div>
 
       {/* Catégorie + Unité */}
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Catégorie</label>
-          <select {...register('category_id')} className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+          <select {...register('category_id')} className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
             <option value="">— Sans catégorie —</option>
             {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
           </select>
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Unité <span className="text-red-500">*</span></label>
-          <select {...register('unit')} className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+          <select {...register('unit')} className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
             {['pièce', 'kg', 'g', 'litre', 'cl', 'sachet', 'boîte', 'lot', 'paquet'].map(u => (
               <option key={u} value={u}>{u}</option>
             ))}
@@ -139,16 +139,16 @@ export default function ProductForm({ product, shopId, categories }: Props) {
       <div className="grid grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Prix (XAF) <span className="text-red-500">*</span></label>
-          <input {...register('price', { valueAsNumber: true })} type="number" min={0} placeholder="500" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <input {...register('price', { valueAsNumber: true })} type="number" min={0} placeholder="500" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
           {errors.price && <p className="text-red-500 text-xs mt-1">{errors.price.message}</p>}
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Prix barré (XAF)</label>
-          <input {...register('compare_price', { valueAsNumber: true })} type="number" min={0} placeholder="700" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <input {...register('compare_price', { valueAsNumber: true })} type="number" min={0} placeholder="700" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Stock</label>
-          <input {...register('stock', { valueAsNumber: true })} type="number" min={0} placeholder="∞ illimité" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <input {...register('stock', { valueAsNumber: true })} type="number" min={0} placeholder="∞ illimité" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
         </div>
       </div>
 
@@ -161,7 +161,7 @@ export default function ProductForm({ product, shopId, categories }: Props) {
       {error && <p className="text-red-500 text-sm bg-red-50 px-4 py-2 rounded-lg">{error}</p>}
 
       <div className="flex gap-3">
-        <button type="submit" disabled={loading} className="bg-green-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-green-700 disabled:opacity-50 transition-colors">
+        <button type="submit" disabled={loading} className="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-dark disabled:opacity-50 transition-colors">
           {loading ? 'Enregistrement...' : product ? 'Mettre à jour' : 'Ajouter le produit'}
         </button>
         <button type="button" onClick={() => router.push('/vendor/products')} className="bg-gray-100 text-gray-700 px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">

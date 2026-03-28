@@ -25,7 +25,7 @@ export default function ProductAvailabilityToggle({ productId, currentStatus }: 
       disabled={loading}
       title={isActive ? 'Désactiver' : 'Activer'}
       className={`p-1.5 rounded-lg transition-colors disabled:opacity-40 ${
-        isActive ? 'text-green-600 hover:bg-green-50' : 'text-gray-400 hover:bg-gray-100'
+        isActive ? 'text-primary hover:bg-primary-50' : 'text-gray-400 hover:bg-gray-100'
       }`}
     >
       {isActive ? <Eye size={15} /> : <EyeOff size={15} />}

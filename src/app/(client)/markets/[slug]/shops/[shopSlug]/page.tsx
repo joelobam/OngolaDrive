@@ -79,7 +79,7 @@ export default async function ShopPage({ params }: { params: Promise<{ slug: str
             {shop.logo_url ? (
               <img src={shop.logo_url} alt={shop.name} className="w-full h-full object-cover" />
             ) : (
-              <div className="w-full h-full bg-green-50 flex items-center justify-center text-green-600 font-bold text-xl">
+              <div className="w-full h-full bg-primary-50 flex items-center justify-center text-primary font-bold text-xl">
                 {shop.name.charAt(0)}
               </div>
             )}
@@ -91,7 +91,7 @@ export default async function ShopPage({ params }: { params: Promise<{ slug: str
 
         <div className="bg-white rounded-xl border border-gray-100 p-3 mb-4 flex items-center justify-between">
           <div className="flex items-center gap-4 text-sm">
-            <span className={`flex items-center gap-1 ${shop.is_open ? 'text-green-600' : 'text-gray-400'}`}>
+            <span className={`flex items-center gap-1 ${shop.is_open ? 'text-primary' : 'text-gray-400'}`}>
               <Clock size={13} />
               {shop.is_open ? 'Ouverte' : 'Fermée'}
             </span>
@@ -109,7 +109,7 @@ export default async function ShopPage({ params }: { params: Promise<{ slug: str
             )}
           </div>
           {shop.phone && (
-            <a href={`tel:${shop.phone}`} className="text-sm text-green-600 font-medium">{shop.phone}</a>
+            <a href={`tel:${shop.phone}`} className="text-sm text-primary font-medium">{shop.phone}</a>
           )}
         </div>
 

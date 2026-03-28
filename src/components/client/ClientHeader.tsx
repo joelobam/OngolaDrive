@@ -14,13 +14,13 @@ export default function ClientHeader({ userId }: Props) {
 
   return (
     <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between sticky top-0 z-10">
-      <Link href="/dashboard" className="text-xl font-bold text-green-600">OngolaDrive</Link>
+      <Link href="/dashboard" className="text-xl font-bold text-primary">OngolaDrive</Link>
       <div className="flex items-center gap-1">
         {userId && <NotificationBell userId={userId} />}
         <Link href="/cart" className="relative p-2">
           <ShoppingCart size={22} className="text-gray-700" />
           {itemCount > 0 && (
-            <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-green-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
+            <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-primary text-white text-xs font-bold rounded-full flex items-center justify-center">
               {itemCount > 9 ? '9+' : itemCount}
             </span>
           )}

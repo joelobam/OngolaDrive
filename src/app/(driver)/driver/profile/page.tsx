@@ -42,7 +42,7 @@ export default async function DriverProfilePage() {
           <p className="text-sm text-gray-400">{profile.phone ?? user.email}</p>
           <div className="flex items-center gap-1.5 mt-1.5">
             {profile.is_active
-              ? <><CheckCircle size={14} className="text-green-500" /><span className="text-xs text-green-600">Compte actif</span></>
+              ? <><CheckCircle size={14} className="text-primary" /><span className="text-xs text-primary">Compte actif</span></>
               : <><XCircle size={14} className="text-gray-400" /><span className="text-xs text-gray-400">Compte inactif</span></>
             }
           </div>
@@ -55,7 +55,7 @@ export default async function DriverProfilePage() {
           <p className="text-sm text-gray-500 mt-0.5">Total livraisons</p>
         </div>
         <div className="bg-white rounded-xl border border-gray-100 p-4 text-center">
-          <p className="text-2xl font-bold text-green-600">{delivered.count ?? 0}</p>
+          <p className="text-2xl font-bold text-primary">{delivered.count ?? 0}</p>
           <p className="text-sm text-gray-500 mt-0.5">Complétées</p>
         </div>
       </div>

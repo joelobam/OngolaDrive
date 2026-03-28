@@ -24,7 +24,7 @@ export default async function AdminDriversPage() {
           <h1 className="text-2xl font-bold text-gray-900">Livreurs</h1>
           <p className="text-gray-500 text-sm mt-1">{drivers?.length ?? 0} livreur(s) enregistré(s)</p>
         </div>
-        <button className="flex items-center gap-2 bg-green-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
+        <button className="flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors">
           <UserPlus size={16} />
           Inviter un livreur
         </button>
@@ -67,7 +67,7 @@ export default async function AdminDriversPage() {
                   </td>
                   <td className="px-6 py-4">
                     <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
-                      driver.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'
+                      driver.is_active ? 'bg-primary-light text-primary-dark' : 'bg-gray-100 text-gray-500'
                     }`}>
                       {driver.is_active ? 'Actif' : 'Inactif'}
                     </span>

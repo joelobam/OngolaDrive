@@ -23,7 +23,7 @@ export default function ShopOpenToggle({ shopId, isOpen }: { shopId: string; isO
       onClick={toggle}
       disabled={loading}
       className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 ${
-        open ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+        open ? 'bg-primary text-white hover:bg-primary-dark' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
       }`}
     >
       <span className={`w-2 h-2 rounded-full ${open ? 'bg-white' : 'bg-gray-400'}`} />

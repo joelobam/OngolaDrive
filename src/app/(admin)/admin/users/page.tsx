@@ -92,11 +92,11 @@ export default async function AdminUsersPage({
             name="q"
             defaultValue={q}
             placeholder="Rechercher un nom..."
-            className="flex-1 px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="flex-1 px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <button
             type="submit"
-            className="px-4 py-1.5 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+            className="px-4 py-1.5 text-sm bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
           >
             Rechercher
           </button>
@@ -124,7 +124,7 @@ export default async function AdminUsersPage({
             </thead>
             <tbody className="divide-y divide-gray-50">
               {users.map(user => (
-                <tr key={user.id} className={`hover:bg-gray-50 transition-colors ${user.id === me?.id ? 'bg-green-50/30' : ''}`}>
+                <tr key={user.id} className={`hover:bg-gray-50 transition-colors ${user.id === me?.id ? 'bg-primary-50/30' : ''}`}>
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
                       {user.avatar_url ? (
@@ -140,7 +140,7 @@ export default async function AdminUsersPage({
                         <p className="font-medium text-gray-800 flex items-center gap-1">
                           {user.full_name || '—'}
                           {user.id === me?.id && (
-                            <ShieldCheck size={13} className="text-green-500" />
+                            <ShieldCheck size={13} className="text-primary" />
                           )}
                         </p>
                         <p className="text-xs text-gray-400 font-mono">{user.id.slice(0, 8)}…</p>

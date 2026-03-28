@@ -5,9 +5,13 @@ import './globals.css'
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
 
 export const metadata: Metadata = {
-  title: 'OngolaDrive',
+  title: 'OngolaDrive — Marché Ongola',
   description: 'Le marché de Yaoundé en ligne — commandez et faites livrer',
   manifest: '/manifest.json',
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -16,7 +20,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#16a34a',
+  themeColor: '#E8231A',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,

@@ -42,7 +42,7 @@ const STATUS_COLORS: Record<string, string> = {
   confirmed: 'bg-blue-100 text-blue-700',
   preparing: 'bg-purple-100 text-purple-700',
   delivering: 'bg-orange-100 text-orange-700',
-  delivered: 'bg-green-100 text-green-700',
+  delivered: 'bg-primary-light text-primary-dark',
   cancelled: 'bg-red-100 text-red-700',
 }
 
@@ -62,7 +62,7 @@ export default async function AdminDashboardPage() {
   const [stats, recentOrders] = await Promise.all([getStats(), getRecentOrders()])
 
   const cards = [
-    { label: 'Marchés actifs', value: stats.markets, icon: Store, color: 'text-green-600', bg: 'bg-green-50' },
+    { label: 'Marchés actifs', value: stats.markets, icon: Store, color: 'text-primary', bg: 'bg-primary-50' },
     { label: 'Boutiques actives', value: stats.shops, icon: ShoppingBag, color: 'text-blue-600', bg: 'bg-blue-50' },
     { label: 'Commandes totales', value: stats.orders, icon: ShoppingCart, color: 'text-purple-600', bg: 'bg-purple-50' },
     { label: 'Utilisateurs', value: stats.users, icon: Users, color: 'text-orange-600', bg: 'bg-orange-50' },

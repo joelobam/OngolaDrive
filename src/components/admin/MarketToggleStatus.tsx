@@ -33,7 +33,7 @@ export default function MarketToggleStatus({ marketId, currentStatus }: Props) {
       title={isActive ? 'Suspendre' : 'Activer'}
       className={`p-1.5 rounded-lg transition-colors disabled:opacity-40 ${
         isActive
-          ? 'text-green-600 hover:bg-green-50'
+          ? 'text-primary hover:bg-primary-50'
           : 'text-gray-400 hover:bg-gray-100'
       }`}
     >

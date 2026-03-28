@@ -59,7 +59,7 @@ export default function RegisterPage() {
           <input
             {...register('full_name')}
             placeholder="Jean Dupont"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
           {errors.full_name && <p className="text-red-500 text-xs mt-1">{errors.full_name.message}</p>}
         </div>
@@ -70,7 +70,7 @@ export default function RegisterPage() {
             {...register('email')}
             type="email"
             placeholder="vous@exemple.com"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
         </div>
@@ -83,7 +83,7 @@ export default function RegisterPage() {
             {...register('phone')}
             type="tel"
             placeholder="+237 6XX XX XX XX"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
           {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
         </div>
@@ -94,7 +94,7 @@ export default function RegisterPage() {
             {...register('password')}
             type="password"
             placeholder="••••••••"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
           {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
         </div>
@@ -104,7 +104,7 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-green-600 text-white rounded-lg py-2.5 text-sm font-medium hover:bg-green-700 disabled:opacity-50 transition-colors"
+          className="w-full bg-primary text-white rounded-lg py-2.5 text-sm font-medium hover:bg-primary-dark disabled:opacity-50 transition-colors"
         >
           {loading ? 'Inscription...' : "S'inscrire"}
         </button>
@@ -112,7 +112,7 @@ export default function RegisterPage() {
 
       <p className="mt-4 text-center text-sm text-gray-500">
         Déjà un compte ?{' '}
-        <Link href="/login" className="text-green-600 hover:underline">Se connecter</Link>
+        <Link href="/login" className="text-primary hover:underline">Se connecter</Link>
       </p>
     </div>
   )

@@ -17,7 +17,7 @@ const STATUS_CONFIG: Record<string, { label: string; className: string }> = {
   ready:      { label: 'Prête',          className: 'bg-indigo-100 text-indigo-700' },
   picked_up:  { label: 'Récupérée',      className: 'bg-orange-100 text-orange-700' },
   delivering: { label: 'En livraison',   className: 'bg-orange-100 text-orange-700' },
-  delivered:  { label: 'Livrée',         className: 'bg-green-100 text-green-700' },
+  delivered:  { label: 'Livrée',         className: 'bg-primary-light text-primary-dark' },
   cancelled:  { label: 'Annulée',        className: 'bg-red-100 text-red-700' },
 }
 
@@ -41,7 +41,7 @@ export default async function OrdersPage() {
           <Package size={48} className="text-gray-200 mb-4" />
           <p className="text-gray-500 font-medium mb-1">Aucune commande</p>
           <p className="text-sm text-gray-400 mb-6">Vos commandes apparaîtront ici.</p>
-          <Link href="/dashboard" className="bg-green-600 text-white px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-green-700">
+          <Link href="/dashboard" className="bg-primary text-white px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-primary-dark">
             Explorer les marchés
           </Link>
         </div>
@@ -66,7 +66,7 @@ export default async function OrdersPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-green-600 text-sm">{formatPrice(order.total)}</span>
+                  <span className="font-bold text-primary text-sm">{formatPrice(order.total)}</span>
                   <ChevronRight size={16} className="text-gray-300" />
                 </div>
               </Link>

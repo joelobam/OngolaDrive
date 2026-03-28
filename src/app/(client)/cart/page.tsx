@@ -21,7 +21,7 @@ export default function CartPage() {
         <ShoppingCart size={48} className="text-gray-200 mb-4" />
         <h2 className="text-lg font-semibold text-gray-700 mb-1">Votre panier est vide</h2>
         <p className="text-sm text-gray-400 mb-6 text-center">Ajoutez des produits depuis un marché pour commander.</p>
-        <Link href="/dashboard" className="bg-green-600 text-white px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-green-700 transition-colors">
+        <Link href="/dashboard" className="bg-primary text-white px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-primary-dark transition-colors">
           Explorer les marchés
         </Link>
       </div>
@@ -55,7 +55,7 @@ export default function CartPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-800 truncate">{item.name}</p>
-                    <p className="text-sm text-green-700 font-semibold mt-0.5">{formatPrice(item.price)}</p>
+                    <p className="text-sm text-primary-dark font-semibold mt-0.5">{formatPrice(item.price)}</p>
                   </div>
                   <div className="flex flex-col items-end justify-between">
                     <button onClick={() => removeItem(item.productId)} className="text-gray-300 hover:text-red-400 transition-colors">
@@ -71,7 +71,7 @@ export default function CartPage() {
                       <span className="text-sm font-semibold w-5 text-center">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.productId, item.quantity + 1)}
-                        className="w-7 h-7 bg-green-600 text-white rounded-lg flex items-center justify-center hover:bg-green-700"
+                        className="w-7 h-7 bg-primary text-white rounded-lg flex items-center justify-center hover:bg-primary-dark"
                       >
                         <Plus size={12} />
                       </button>
@@ -96,13 +96,13 @@ export default function CartPage() {
         </div>
         <div className="border-t border-gray-100 pt-3 flex items-center justify-between">
           <span className="font-semibold text-gray-800">Total</span>
-          <span className="font-bold text-lg text-green-600">{formatPrice(total())}</span>
+          <span className="font-bold text-lg text-primary">{formatPrice(total())}</span>
         </div>
       </div>
 
       <Link
         href="/checkout"
-        className="w-full flex items-center justify-center gap-2 bg-green-600 text-white py-3.5 rounded-xl font-medium hover:bg-green-700 transition-colors"
+        className="w-full flex items-center justify-center gap-2 bg-primary text-white py-3.5 rounded-xl font-medium hover:bg-primary-dark transition-colors"
       >
         Passer la commande <ArrowRight size={18} />
       </Link>

@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 
 const TYPE_CONFIG: Record<string, { icon: typeof Bell; color: string }> = {
   order_update: { icon: Package,       color: 'text-blue-500' },
-  order_ready:  { icon: CheckCircle2,  color: 'text-green-500' },
+  order_ready:  { icon: CheckCircle2,  color: 'text-primary' },
   system:       { icon: AlertCircle,   color: 'text-gray-400' },
 }
 
@@ -77,7 +77,7 @@ export default function NotificationBell({ userId }: Props) {
               {unreadCount > 0 && (
                 <button
                   onClick={markAllAsRead}
-                  className="text-xs text-green-600 hover:underline"
+                  className="text-xs text-primary hover:underline"
                 >
                   Tout marquer lu
                 </button>
@@ -104,7 +104,7 @@ export default function NotificationBell({ userId }: Props) {
                     onClick={() => handleNotifClick(notif)}
                     className={cn(
                       'w-full flex items-start gap-3 px-4 py-3 text-left hover:bg-gray-50 transition-colors',
-                      !notif.is_read && 'bg-green-50/50'
+                      !notif.is_read && 'bg-primary-50/50'
                     )}
                   >
                     <div className={`mt-0.5 flex-shrink-0 ${config.color}`}>
@@ -118,7 +118,7 @@ export default function NotificationBell({ userId }: Props) {
                       <p className="text-xs text-gray-300 mt-1">{timeAgo(notif.created_at)}</p>
                     </div>
                     {!notif.is_read && (
-                      <span className="w-2 h-2 rounded-full bg-green-500 mt-1.5 flex-shrink-0" />
+                      <span className="w-2 h-2 rounded-full bg-primary-500 mt-1.5 flex-shrink-0" />
                     )}
                   </button>
                 )

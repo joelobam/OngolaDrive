@@ -49,7 +49,7 @@ export default function LoginPage() {
             {...register('email')}
             type="email"
             placeholder="vous@exemple.com"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
         </div>
@@ -60,7 +60,7 @@ export default function LoginPage() {
             {...register('password')}
             type="password"
             placeholder="••••••••"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
           {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
         </div>
@@ -70,19 +70,19 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-green-600 text-white rounded-lg py-2.5 text-sm font-medium hover:bg-green-700 disabled:opacity-50 transition-colors"
+          className="w-full bg-primary text-white rounded-lg py-2.5 text-sm font-medium hover:bg-primary-dark disabled:opacity-50 transition-colors"
         >
           {loading ? 'Connexion...' : 'Se connecter'}
         </button>
       </form>
 
       <div className="mt-4 text-center space-y-2">
-        <Link href="/otp" className="block text-sm text-green-600 hover:underline">
+        <Link href="/otp" className="block text-sm text-primary hover:underline">
           Se connecter par SMS (OTP)
         </Link>
         <p className="text-sm text-gray-500">
           Pas encore de compte ?{' '}
-          <Link href="/register" className="text-green-600 hover:underline">S&apos;inscrire</Link>
+          <Link href="/register" className="text-primary hover:underline">S&apos;inscrire</Link>
         </p>
       </div>
     </div>

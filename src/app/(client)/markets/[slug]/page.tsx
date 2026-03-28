@@ -37,7 +37,7 @@ export default async function MarketPage({ params }: { params: Promise<{ slug: s
   return (
     <div>
       {/* Header marché */}
-      <div className="relative h-40 bg-green-600 mb-4">
+      <div className="relative h-40 bg-primary mb-4">
         {market.cover_image && (
           <img src={market.cover_image} alt={market.name} className="w-full h-full object-cover opacity-60" />
         )}
@@ -74,7 +74,7 @@ export default async function MarketPage({ params }: { params: Promise<{ slug: s
                   {shop.logo_url || shop.cover_image ? (
                     <img src={shop.logo_url ?? shop.cover_image!} alt={shop.name} className="w-full h-full object-cover" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-green-600 font-bold text-xl">
+                    <div className="w-full h-full flex items-center justify-center text-primary font-bold text-xl">
                       {shop.name.charAt(0)}
                     </div>
                   )}
@@ -82,7 +82,7 @@ export default async function MarketPage({ params }: { params: Promise<{ slug: s
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <h3 className="font-semibold text-gray-800 truncate">{shop.name}</h3>
-                    <span className={`w-2 h-2 rounded-full flex-shrink-0 ${shop.is_open ? 'bg-green-500' : 'bg-gray-300'}`} />
+                    <span className={`w-2 h-2 rounded-full flex-shrink-0 ${shop.is_open ? 'bg-primary-500' : 'bg-gray-300'}`} />
                   </div>
                   {shop.description && (
                     <p className="text-xs text-gray-400 mt-0.5 truncate">{shop.description}</p>
@@ -97,7 +97,7 @@ export default async function MarketPage({ params }: { params: Promise<{ slug: s
                     {shop.booth_number && (
                       <span className="text-xs text-gray-400">Kiosque {shop.booth_number}</span>
                     )}
-                    <span className={`text-xs ${shop.is_open ? 'text-green-600' : 'text-gray-400'}`}>
+                    <span className={`text-xs ${shop.is_open ? 'text-primary' : 'text-gray-400'}`}>
                       <Clock size={10} className="inline mr-0.5" />
                       {shop.is_open ? 'Ouverte' : 'Fermée'}
                     </span>

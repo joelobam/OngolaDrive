@@ -160,11 +160,11 @@ export default function CheckoutPage() {
                 else if (paymentMethod === 'cash') setPaymentMethod('mtn_momo')
               }}
               className={`flex flex-col items-center gap-1.5 p-4 rounded-xl border-2 transition-colors ${
-                deliveryMode === value ? 'border-green-500 bg-green-50' : 'border-gray-200 bg-white'
+                deliveryMode === value ? 'border-green-500 bg-primary-50' : 'border-gray-200 bg-white'
               }`}
             >
-              <Icon size={22} className={deliveryMode === value ? 'text-green-600' : 'text-gray-400'} />
-              <span className={`text-sm font-semibold ${deliveryMode === value ? 'text-green-700' : 'text-gray-700'}`}>{label}</span>
+              <Icon size={22} className={deliveryMode === value ? 'text-primary' : 'text-gray-400'} />
+              <span className={`text-sm font-semibold ${deliveryMode === value ? 'text-primary-dark' : 'text-gray-700'}`}>{label}</span>
               <span className="text-xs text-gray-400">{sub}</span>
             </button>
           ))}
@@ -180,7 +180,7 @@ export default function CheckoutPage() {
             onChange={e => setAddress(e.target.value)}
             rows={3}
             placeholder="Quartier, rue, point de repère..."
-            className="w-full border border-gray-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </section>
       )}
@@ -200,13 +200,13 @@ export default function CheckoutPage() {
               onClick={() => !disabled && setPaymentMethod(value)}
               disabled={disabled}
               className={`w-full flex items-center gap-3 p-3.5 rounded-xl border-2 transition-colors text-left ${
-                paymentMethod === value ? 'border-green-500 bg-green-50' : 'border-gray-200 bg-white'
+                paymentMethod === value ? 'border-green-500 bg-primary-50' : 'border-gray-200 bg-white'
               } ${disabled ? 'opacity-40 cursor-not-allowed' : ''}`}
             >
-              <Icon size={18} className={paymentMethod === value ? 'text-green-600' : 'text-gray-400'} />
-              <span className={`text-sm font-medium ${paymentMethod === value ? 'text-green-700' : 'text-gray-700'}`}>{label}</span>
+              <Icon size={18} className={paymentMethod === value ? 'text-primary' : 'text-gray-400'} />
+              <span className={`text-sm font-medium ${paymentMethod === value ? 'text-primary-dark' : 'text-gray-700'}`}>{label}</span>
               {paymentMethod === value && (
-                <span className="ml-auto w-4 h-4 rounded-full bg-green-500 flex items-center justify-center">
+                <span className="ml-auto w-4 h-4 rounded-full bg-primary-500 flex items-center justify-center">
                   <span className="w-2 h-2 rounded-full bg-white" />
                 </span>
               )}
@@ -223,7 +223,7 @@ export default function CheckoutPage() {
           onChange={e => setNotes(e.target.value)}
           rows={2}
           placeholder="Instructions spéciales, allergies..."
-          className="w-full border border-gray-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full border border-gray-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
         />
       </section>
 
@@ -239,7 +239,7 @@ export default function CheckoutPage() {
         </div>
         <div className="border-t border-gray-100 pt-3 flex justify-between font-bold text-gray-800">
           <span>Total</span>
-          <span className="text-green-600 text-lg">{formatPrice(grandTotal)}</span>
+          <span className="text-primary text-lg">{formatPrice(grandTotal)}</span>
         </div>
       </div>
 
@@ -248,7 +248,7 @@ export default function CheckoutPage() {
       <button
         onClick={handleOrder}
         disabled={loading}
-        className="w-full bg-green-600 text-white py-3.5 rounded-xl font-semibold hover:bg-green-700 disabled:opacity-50 transition-colors"
+        className="w-full bg-primary text-white py-3.5 rounded-xl font-semibold hover:bg-primary-dark disabled:opacity-50 transition-colors"
       >
         {loading
           ? 'Traitement...'

@@ -71,9 +71,9 @@ export default function DriverLocationTracker({ deliveryId }: Props) {
 
   return (
     <div className={`flex items-center gap-2 rounded-xl px-4 py-3 mb-3 text-sm font-medium ${
-      status === 'tracking' ? 'bg-green-50 border border-green-100 text-green-700' : 'bg-gray-50 border border-gray-100 text-gray-500'
+      status === 'tracking' ? 'bg-primary-50 border border-primary-light text-primary-dark' : 'bg-gray-50 border border-gray-100 text-gray-500'
     }`}>
-      <Navigation size={15} className={status === 'tracking' ? 'text-green-600 animate-pulse' : 'text-gray-400'} />
+      <Navigation size={15} className={status === 'tracking' ? 'text-primary animate-pulse' : 'text-gray-400'} />
       {status === 'tracking' ? 'Position GPS transmise en temps réel' : 'GPS inactif'}
     </div>
   )

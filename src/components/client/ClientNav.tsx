@@ -18,7 +18,7 @@ export default function ClientNav() {
       {NAV.map(({ href, label, icon: Icon }) => {
         const active = pathname === href || pathname.startsWith(href + '/')
         return (
-          <Link key={href} href={href} className={cn('flex flex-col items-center gap-0.5 text-xs', active ? 'text-green-600' : 'text-gray-400')}>
+          <Link key={href} href={href} className={cn('flex flex-col items-center gap-0.5 text-xs', active ? 'text-primary' : 'text-gray-400')}>
             <Icon size={20} />
             <span>{label}</span>
           </Link>

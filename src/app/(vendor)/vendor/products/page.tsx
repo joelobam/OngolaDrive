@@ -12,7 +12,7 @@ type Product = {
 }
 
 const STATUS_CONFIG: Record<string, { label: string; className: string }> = {
-  active:       { label: 'Disponible',   className: 'bg-green-100 text-green-700' },
+  active:       { label: 'Disponible',   className: 'bg-primary-light text-primary-dark' },
   inactive:     { label: 'Désactivé',    className: 'bg-gray-100 text-gray-500' },
   out_of_stock: { label: 'Rupture',      className: 'bg-red-100 text-red-600' },
 }
@@ -55,7 +55,7 @@ export default async function VendorProductsPage({ searchParams }: { searchParam
         </div>
         <Link
           href="/vendor/products/new"
-          className="flex items-center gap-2 bg-green-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors"
+          className="flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
         >
           <Plus size={16} /> Ajouter un produit
         </Link>
@@ -74,7 +74,7 @@ export default async function VendorProductsPage({ searchParams }: { searchParam
       {!products?.length ? (
         <div className="bg-white rounded-xl border border-gray-100 p-16 text-center">
           <p className="text-gray-400 mb-4">Aucun produit trouvé.</p>
-          <Link href="/vendor/products/new" className="text-green-600 text-sm hover:underline">Ajouter votre premier produit</Link>
+          <Link href="/vendor/products/new" className="text-primary text-sm hover:underline">Ajouter votre premier produit</Link>
         </div>
       ) : (
         <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">

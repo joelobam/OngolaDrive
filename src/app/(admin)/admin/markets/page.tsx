@@ -26,7 +26,7 @@ export default async function AdminMarketsPage() {
         </div>
         <Link
           href="/admin/markets/new"
-          className="flex items-center gap-2 bg-green-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors"
+          className="flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
         >
           <Plus size={16} />
           Nouveau marché
@@ -58,7 +58,7 @@ export default async function AdminMarketsPage() {
                       {market.cover_image ? (
                         <img src={market.cover_image} alt={market.name} className="w-10 h-10 rounded-lg object-cover" />
                       ) : (
-                        <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center text-green-600 font-bold text-sm">
+                        <div className="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center text-primary font-bold text-sm">
                           {market.name.charAt(0)}
                         </div>
                       )}

@@ -23,7 +23,7 @@ type Delivery = {
 const STATUS_CONFIG: Record<string, { label: string; className: string }> = {
   assigned:  { label: 'À récupérer',   className: 'bg-yellow-100 text-yellow-700' },
   picked_up: { label: 'En livraison',  className: 'bg-blue-100 text-blue-700' },
-  delivered: { label: 'Livrée',        className: 'bg-green-100 text-green-700' },
+  delivered: { label: 'Livrée',        className: 'bg-primary-light text-primary-dark' },
 }
 
 const TABS = [
@@ -91,19 +91,19 @@ export default async function DriverDeliveriesPage({
                     </div>
                     <p className="text-sm text-gray-600">{order?.customer?.full_name}</p>
                     {order?.customer?.phone && (
-                      <a href={`tel:${order.customer.phone}`} className="text-xs text-green-600 font-medium" onClick={e => e.stopPropagation()}>
+                      <a href={`tel:${order.customer.phone}`} className="text-xs text-primary font-medium" onClick={e => e.stopPropagation()}>
                         {order.customer.phone}
                       </a>
                     )}
                   </div>
                   <div className="flex items-center gap-1 text-gray-300">
-                    <span className="font-bold text-green-600 text-sm">{formatPrice(order?.total ?? 0)}</span>
+                    <span className="font-bold text-primary text-sm">{formatPrice(order?.total ?? 0)}</span>
                     <ChevronRight size={16} />
                   </div>
                 </div>
 
                 <div className="flex items-start gap-1.5 text-xs text-gray-400">
-                  <MapPin size={12} className="mt-0.5 flex-shrink-0 text-green-500" />
+                  <MapPin size={12} className="mt-0.5 flex-shrink-0 text-primary" />
                   <span>{order?.market?.name} · {order?.market?.address ?? order?.market?.city}</span>
                 </div>
 

@@ -12,7 +12,7 @@ const ORDER_STATUS_LABELS: Record<string, string> = {
 const ORDER_STATUS_COLORS: Record<string, string> = {
   pending: 'bg-yellow-100 text-yellow-700', confirmed: 'bg-blue-100 text-blue-700',
   preparing: 'bg-purple-100 text-purple-700', ready: 'bg-indigo-100 text-indigo-700',
-  delivering: 'bg-orange-100 text-orange-700', delivered: 'bg-green-100 text-green-700',
+  delivering: 'bg-orange-100 text-orange-700', delivered: 'bg-primary-light text-primary-dark',
   cancelled: 'bg-red-100 text-red-700',
 }
 
@@ -31,7 +31,7 @@ export default async function VendorDashboardPage() {
     return (
       <div className="flex flex-col items-center justify-center h-96 text-center">
         <p className="text-gray-500 mb-4">Vous n&apos;avez pas encore de boutique.</p>
-        <Link href="/vendor/shop" className="bg-green-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
+        <Link href="/vendor/shop" className="bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors">
           Créer ma boutique
         </Link>
       </div>
@@ -64,7 +64,7 @@ export default async function VendorDashboardPage() {
   const cards = [
     { label: 'Produits actifs', value: products.count ?? 0, icon: Package, color: 'text-blue-600', bg: 'bg-blue-50' },
     { label: 'Commandes reçues', value: orders.count ?? 0, icon: ShoppingCart, color: 'text-purple-600', bg: 'bg-purple-50' },
-    { label: 'Chiffre d\'affaires', value: formatPrice(totalRevenue), icon: TrendingUp, color: 'text-green-600', bg: 'bg-green-50' },
+    { label: 'Chiffre d\'affaires', value: formatPrice(totalRevenue), icon: TrendingUp, color: 'text-primary', bg: 'bg-primary-50' },
     { label: 'Note moyenne', value: shop.rating > 0 ? `${shop.rating.toFixed(1)} / 5` : '—', icon: Star, color: 'text-yellow-500', bg: 'bg-yellow-50' },
   ]
 
@@ -92,7 +92,7 @@ export default async function VendorDashboardPage() {
       <div className="bg-white rounded-xl border border-gray-100">
         <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
           <h2 className="font-semibold text-gray-800">Dernières commandes</h2>
-          <Link href="/vendor/orders" className="text-sm text-green-600 hover:underline">Voir tout</Link>
+          <Link href="/vendor/orders" className="text-sm text-primary hover:underline">Voir tout</Link>
         </div>
         {!recentOrders?.length ? (
           <p className="text-gray-400 text-sm text-center py-12">Aucune commande reçue.</p>

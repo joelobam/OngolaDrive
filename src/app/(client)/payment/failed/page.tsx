@@ -24,7 +24,7 @@ export default async function PaymentFailedPage({
           {order_id && (
             <Link
               href={`/orders/${order_id}`}
-              className="flex items-center justify-center gap-2 w-full bg-green-600 text-white py-3 rounded-xl font-medium hover:bg-green-700 transition-colors text-sm"
+              className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3 rounded-xl font-medium hover:bg-primary-dark transition-colors text-sm"
             >
               <RefreshCw size={16} /> Voir ma commande
             </Link>

@@ -79,7 +79,7 @@ export default function ShopForm({ shop, markets, ownerId }: Props) {
           <label className="block text-sm font-medium text-gray-700 mb-1">Marché <span className="text-red-500">*</span></label>
           <select
             {...register('market_id')}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
           >
             <option value="">— Sélectionnez un marché —</option>
             {markets.map(m => (
@@ -94,31 +94,31 @@ export default function ShopForm({ shop, markets, ownerId }: Props) {
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Nom <span className="text-red-500">*</span></label>
           <div className="flex gap-2">
-            <input {...register('name')} placeholder="Ma boutique" className="flex-1 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+            <input {...register('name')} placeholder="Ma boutique" className="flex-1 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
             <button type="button" onClick={generateSlug} className="px-3 py-2.5 bg-gray-100 text-gray-600 text-xs rounded-lg hover:bg-gray-200 whitespace-nowrap">→ Slug</button>
           </div>
           {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Slug <span className="text-red-500">*</span></label>
-          <input {...register('slug')} placeholder="ma-boutique" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <input {...register('slug')} placeholder="ma-boutique" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
           {errors.slug && <p className="text-red-500 text-xs mt-1">{errors.slug.message}</p>}
         </div>
       </div>
 
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-        <textarea {...register('description')} rows={3} placeholder="Décrivez votre boutique..." className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <textarea {...register('description')} rows={3} placeholder="Décrivez votre boutique..." className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
-          <input {...register('phone')} placeholder="+237 6XX XX XX XX" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <input {...register('phone')} placeholder="+237 6XX XX XX XX" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">N° kiosque / stand</label>
-          <input {...register('booth_number')} placeholder="A-12" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <input {...register('booth_number')} placeholder="A-12" className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
         </div>
       </div>
 
@@ -127,7 +127,7 @@ export default function ShopForm({ shop, markets, ownerId }: Props) {
       <button
         type="submit"
         disabled={loading}
-        className="bg-green-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-green-700 disabled:opacity-50 transition-colors"
+        className="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-dark disabled:opacity-50 transition-colors"
       >
         {loading ? 'Enregistrement...' : shop ? 'Mettre à jour' : 'Créer ma boutique'}
       </button>
