@@ -1,5 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
+import { createClient as createServiceClient } from '@supabase/supabase-js'
 import ShopValidationActions from '@/components/admin/ShopValidationActions'
+import CreateShopModal from '@/components/admin/CreateShopModal'
 import { Store } from 'lucide-react'
 
 type ShopRow = {
@@ -23,17 +25,33 @@ export default async function AdminShopsPage({
   const { status = 'pending' } = await searchParams
   const supabase = await createClient()
 
-  const { data: shops } = await supabase
-    .from('shops')
-    .select('id, name, slug, status, created_at, booth_number, market:market_id(name, city), owner:owner_id(full_name, phone)')
-    .eq('status', status)
-    .order('created_at', { ascending: false }) as { data: ShopRow[] | null; error: unknown }
+  const svc = createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  )
+
+  const [shopsRes, marketsRes, vendorsRes] = await Promise.all([
+    supabase
+      .from('shops')
+      .select('id, name, slug, status, created_at, booth_number, market:market_id(name, city), owner:owner_id(full_name, phone)')
+      .eq('status', status)
+      .order('created_at', { ascending: false }),
+    supabase.from('markets').select('id, name, city').eq('status', 'active').order('name'),
+    svc.from('profiles').select('id, full_name').eq('role', 'vendor').order('full_name'),
+  ])
+
+  const shops = shopsRes.data as ShopRow[] | null
+  const markets = (marketsRes.data ?? []) as { id: string; name: string; city: string }[]
+  const vendors = (vendorsRes.data ?? []) as { id: string; full_name: string }[]
 
   return (
     <div>
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Boutiques</h1>
-        <p className="text-gray-500 text-sm mt-1">Gestion et validation des boutiques</p>
+      <div className="mb-8 flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Boutiques</h1>
+          <p className="text-gray-500 text-sm mt-1">Gestion et validation des boutiques</p>
+        </div>
+        <CreateShopModal markets={markets} vendors={vendors} />
       </div>
 
       {/* Tabs */}

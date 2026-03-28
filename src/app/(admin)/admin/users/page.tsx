@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { createClient as createServiceClient } from '@supabase/supabase-js'
 import { Users, ShieldCheck } from 'lucide-react'
 import UserRoleSelect from '@/components/admin/UserRoleSelect'
+import CreateUserModal from '@/components/admin/CreateUserModal'
 
 type UserRow = {
   id: string
@@ -57,9 +58,12 @@ export default async function AdminUsersPage({
 
   return (
     <div>
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Utilisateurs</h1>
-        <p className="text-gray-500 text-sm mt-1">Liste de tous les comptes inscrits</p>
+      <div className="mb-8 flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Utilisateurs</h1>
+          <p className="text-gray-500 text-sm mt-1">Liste de tous les comptes inscrits</p>
+        </div>
+        <CreateUserModal />
       </div>
 
       {/* Filtres */}
