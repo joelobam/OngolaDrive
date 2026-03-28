@@ -22,7 +22,7 @@ export default async function AdminShopsPage({
 }: {
   searchParams: Promise<{ status?: string }>
 }) {
-  const { status = 'pending' } = await searchParams
+  const { status = 'active' } = await searchParams
   const supabase = await createClient()
 
   const svc = createServiceClient(
@@ -31,12 +31,12 @@ export default async function AdminShopsPage({
   )
 
   const [shopsRes, marketsRes, vendorsRes] = await Promise.all([
-    supabase
+    svc
       .from('shops')
       .select('id, name, slug, status, created_at, booth_number, market:market_id(name, city), owner:owner_id(full_name, phone)')
       .eq('status', status)
       .order('created_at', { ascending: false }),
-    supabase.from('markets').select('id, name, city').eq('status', 'active').order('name'),
+    svc.from('markets').select('id, name, city').eq('status', 'active').order('name'),
     svc.from('profiles').select('id, full_name').eq('role', 'vendor').order('full_name'),
   ])
 
