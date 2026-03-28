@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   description: 'Le marché de Yaoundé en ligne — commandez et faites livrer',
   manifest: '/manifest.json',
   icons: {
-    icon: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
   appleWebApp: {
     capable: true,

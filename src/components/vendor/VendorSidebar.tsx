@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { LayoutDashboard, ShoppingBag, Package, ShoppingCart, LogOut, ChevronRight } from 'lucide-react'
 import { cn, getInitials } from '@/lib/utils'
@@ -32,9 +33,9 @@ export default function VendorSidebar({ fullName, avatarUrl, shopName, shopStatu
 
   return (
     <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col z-20">
-      <div className="px-6 py-5 border-b border-gray-100">
-        <h1 className="text-xl font-bold text-primary">OngolaDrive</h1>
-        <p className="text-xs text-gray-400 mt-0.5">Espace vendeur</p>
+      <div className="px-4 py-4 border-b border-gray-100">
+        <Image src="/logo.png" alt="OngolaDrive" width={150} height={52} className="object-contain" />
+        <p className="text-xs text-gray-400 mt-1">Espace vendeur</p>
       </div>
 
       {shopName && (
