@@ -32,24 +32,35 @@ export async function createUser(formData: {
 }) {
   await assertSuperAdmin()
   if (!ALLOWED_ROLES.includes(formData.role)) throw new Error('Rôle invalide')
+  if (!formData.email || !formData.password) throw new Error('Email et mot de passe requis')
+  if (formData.password.length < 8) throw new Error('Le mot de passe doit faire au moins 8 caractères')
 
   const svc = getSvc()
 
-  // Créer l'utilisateur Auth
+  // 1. Créer le compte Auth
   const { data: created, error: authError } = await svc.auth.admin.createUser({
     email: formData.email,
     password: formData.password,
     email_confirm: true,
+    user_metadata: { full_name: formData.full_name },
   })
-  if (authError) throw new Error(authError.message)
 
-  // Mettre à jour le profil
+  if (authError) throw new Error(`Erreur Auth : ${authError.message}`)
+  if (!created?.user?.id) throw new Error('Utilisateur non créé — réponse inattendue de Supabase')
+
+  // 2. Créer/mettre à jour le profil (upsert au cas où le trigger tarde)
   const { error: profileError } = await (svc.from('profiles') as any)
-    .update({ full_name: formData.full_name, phone: formData.phone || null, role: formData.role })
-    .eq('id', created.user.id)
-  if (profileError) throw new Error(profileError.message)
+    .upsert({
+      id: created.user.id,
+      full_name: formData.full_name,
+      phone: formData.phone || null,
+      role: formData.role,
+    })
+
+  if (profileError) throw new Error(`Profil non mis à jour : ${profileError.message}`)
 
   revalidatePath('/admin/users')
+  return { userId: created.user.id }
 }
 
 export async function updateUserRole(userId: string, newRole: string) {
