@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Store, ShoppingBag, Users, Truck,
-  BarChart2, Settings, LogOut, ChevronRight
+  BarChart2, Settings, LogOut, ChevronRight, Tag
 } from 'lucide-react'
 import { cn, getInitials } from '@/lib/utils'
 import { createClient } from '@/lib/supabase/client'
@@ -15,6 +15,7 @@ const NAV = [
   { href: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/markets', label: 'Marchés', icon: Store },
   { href: '/admin/shops', label: 'Boutiques', icon: ShoppingBag },
+  { href: '/admin/categories', label: 'Catégories', icon: Tag },
   { href: '/admin/drivers', label: 'Livreurs', icon: Truck },
   { href: '/admin/users', label: 'Utilisateurs', icon: Users },
   { href: '/admin/stats', label: 'Statistiques', icon: BarChart2 },

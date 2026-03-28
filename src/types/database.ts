@@ -188,6 +188,7 @@ export interface Database {
           stock: number | null
           sku: string | null
           status: ProductStatus
+          is_available: boolean
           is_featured: boolean
           tags: string[]
           metadata: Record<string, unknown>
@@ -209,6 +210,7 @@ export interface Database {
           stock?: number | null
           sku?: string | null
           status?: ProductStatus
+          is_available?: boolean
           is_featured?: boolean
           tags?: string[]
           metadata?: Record<string, unknown>

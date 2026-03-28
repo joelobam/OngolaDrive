@@ -6,7 +6,7 @@ import AdminProductForm from '@/components/admin/AdminProductForm'
 
 type Product = {
   id: string; name: string; slug: string; price: number
-  unit: string; is_available: boolean; status: string
+  unit: string; status: string; is_available: boolean
   stock: number | null; category: { name: string } | null
 }
 
@@ -28,7 +28,7 @@ export default async function AdminShopProductsPage({
   const [shopRes, productsRes, categoriesRes] = await Promise.all([
     svc.from('shops').select('id, name, market:market_id(name)').eq('id', shopId).single(),
     svc.from('products')
-      .select('id, name, slug, price, unit, is_available, status, stock, category:category_id(name)')
+      .select('id, name, slug, price, unit, status, is_available, stock, category:category_id(name)')
       .eq('shop_id', shopId)
       .order('created_at', { ascending: false }),
     svc.from('categories').select('id, name').order('name'),

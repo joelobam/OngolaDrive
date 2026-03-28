@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import DriverToggleActive from '@/components/admin/DriverToggleActive'
-import { UserPlus } from 'lucide-react'
+import InviteDriverModal from '@/components/admin/InviteDriverModal'
 import { getInitials } from '@/lib/utils'
 
 type DriverRow = {
@@ -24,10 +24,7 @@ export default async function AdminDriversPage() {
           <h1 className="text-2xl font-bold text-gray-900">Livreurs</h1>
           <p className="text-gray-500 text-sm mt-1">{drivers?.length ?? 0} livreur(s) enregistré(s)</p>
         </div>
-        <button className="flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors">
-          <UserPlus size={16} />
-          Inviter un livreur
-        </button>
+        <InviteDriverModal />
       </div>
 
       {!drivers?.length ? (
