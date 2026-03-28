@@ -86,7 +86,8 @@ export default async function AdminShopsPage({
                 <th className="px-6 py-3 text-left">Vendeur</th>
                 <th className="px-6 py-3 text-left">Kiosque</th>
                 <th className="px-6 py-3 text-left">Date</th>
-                {status === 'pending' && <th className="px-6 py-3 text-right">Actions</th>}
+                <th className="px-6 py-3 text-right">Produits</th>
+                {status === 'pending' && <th className="px-6 py-3 text-right">Validation</th>}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50">
@@ -107,6 +108,14 @@ export default async function AdminShopsPage({
                   <td className="px-6 py-4 text-gray-500">{shop.booth_number ?? '—'}</td>
                   <td className="px-6 py-4 text-gray-500">
                     {new Date(shop.created_at).toLocaleDateString('fr-FR')}
+                  </td>
+                  <td className="px-6 py-4 text-right">
+                    <a
+                      href={`/admin/shops/${shop.id}/products`}
+                      className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-primary bg-primary-light rounded-lg hover:bg-primary-light/70 transition-colors"
+                    >
+                      Produits →
+                    </a>
                   </td>
                   {status === 'pending' && (
                     <td className="px-6 py-4">
