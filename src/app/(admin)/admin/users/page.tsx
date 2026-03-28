@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { createClient as createServiceClient } from '@supabase/supabase-js'
 import { Users, ShieldCheck } from 'lucide-react'
+import UserRoleSelect from '@/components/admin/UserRoleSelect'
 
 type UserRow = {
   id: string
@@ -11,21 +12,6 @@ type UserRow = {
   avatar_url: string | null
 }
 
-const ROLE_BADGE: Record<string, string> = {
-  super_admin:    'bg-purple-100 text-purple-700',
-  market_admin:   'bg-blue-100 text-blue-700',
-  vendor:         'bg-yellow-100 text-yellow-700',
-  delivery_agent: 'bg-orange-100 text-orange-700',
-  customer:       'bg-gray-100 text-gray-600',
-}
-
-const ROLE_LABELS: Record<string, string> = {
-  super_admin:    'Super Admin',
-  market_admin:   'Admin marché',
-  vendor:         'Vendeur',
-  delivery_agent: 'Livreur',
-  customer:       'Client',
-}
 
 const ROLES = ['all', 'customer', 'vendor', 'delivery_agent', 'market_admin', 'super_admin']
 const ROLE_TAB_LABELS: Record<string, string> = {
@@ -159,9 +145,11 @@ export default async function AdminUsersPage({
                   </td>
                   <td className="px-6 py-4 text-gray-500">{user.phone ?? '—'}</td>
                   <td className="px-6 py-4">
-                    <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${ROLE_BADGE[user.role] ?? 'bg-gray-100 text-gray-600'}`}>
-                      {ROLE_LABELS[user.role] ?? user.role}
-                    </span>
+                    <UserRoleSelect
+                      userId={user.id}
+                      currentRole={user.role}
+                      isSelf={user.id === me?.id}
+                    />
                   </td>
                   <td className="px-6 py-4 text-gray-500">
                     {new Date(user.created_at).toLocaleDateString('fr-FR')}

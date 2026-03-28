@@ -16,7 +16,7 @@ const schema = z.object({
   address: z.string().optional(),
   contact_phone: z.string().optional(),
   contact_email: z.string().email('Email invalide').optional().or(z.literal('')),
-  commission_rate: z.number().min(0).max(100),
+  commission_rate: z.coerce.number().min(0).max(100),
   currency: z.string().min(1),
 })
 
