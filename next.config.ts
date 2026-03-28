@@ -1,6 +1,5 @@
 import type { NextConfig } from 'next'
-// @ts-expect-error next-pwa has no types
-import withPWA from 'next-pwa'
+import withPWA from '@ducanh2912/next-pwa'
 
 const nextConfig: NextConfig = {
   images: {
@@ -13,7 +12,5 @@ const nextConfig: NextConfig = {
 
 export default withPWA({
   dest: 'public',
-  register: true,
-  skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
 })(nextConfig)

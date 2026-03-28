@@ -7,7 +7,6 @@ import { advanceDeliveryStatus } from '@/app/actions/deliveryActions'
 
 interface Props {
   deliveryId: string
-  orderId: string
   currentStatus: string
 }
 
