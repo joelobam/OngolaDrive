@@ -2,13 +2,14 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Home, Package, User } from 'lucide-react'
+import { Home, Search, Package, User } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const NAV = [
-  { href: '/dashboard', label: 'Accueil', icon: Home },
-  { href: '/orders',    label: 'Commandes', icon: Package },
-  { href: '/profile',   label: 'Profil',  icon: User },
+  { href: '/dashboard', label: 'Accueil',    icon: Home },
+  { href: '/search',    label: 'Recherche',  icon: Search },
+  { href: '/orders',    label: 'Commandes',  icon: Package },
+  { href: '/profile',   label: 'Profil',     icon: User },
 ]
 
 export default function ClientNav() {
