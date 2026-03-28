@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useCartStore } from '@/store/cart'
-import { createClient } from '@/lib/supabase/client'
+import { createOrder } from '@/app/actions/orderActions'
 import { formatPrice } from '@/lib/utils'
 import { MapPin, ShoppingBag, Smartphone, CreditCard, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
@@ -40,92 +40,51 @@ export default function CheckoutPage() {
 
     setLoading(true)
     setError(null)
-    const supabase = createClient()
 
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) { router.push('/login'); return }
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ordersTable = supabase.from('orders') as any
-    const { data: order, error: orderError } = await ordersTable.insert({
-      market_id: marketId,
-      customer_id: user.id,
-      delivery_type: deliveryMode,
-      delivery_address_id: null,
-      status: 'pending',
-      subtotal: total(),
-      delivery_fee: fee,
-      commission_amount: 0,
-      total: grandTotal,
-      notes: notes || null,
-    }).select('id').single()
-
-    if (orderError || !order) {
-      setError('Erreur lors de la création de la commande. Réessayez.')
-      setLoading(false)
-      return
-    }
-
-    // Insérer les lignes de commande
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const itemsTable = supabase.from('order_items') as any
-    const orderItems = items.map(item => ({
-      order_id: order.id,
-      shop_id: item.shopId,
-      product_id: item.productId,
-      product_name: item.name,
-      product_image: item.image,
-      unit_price: item.price,
-      quantity: item.quantity,
-      subtotal: item.price * item.quantity,
-      status: 'pending',
-    }))
-
-    const { error: itemsError } = await itemsTable.insert(orderItems)
-    if (itemsError) {
-      setError('Erreur lors de l\'enregistrement des articles.')
-      setLoading(false)
-      return
-    }
-
-    // Créer le paiement
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const paymentsTable = supabase.from('payments') as any
-    await paymentsTable.insert({
-      order_id: order.id,
-      method: paymentMethod,
-      status: paymentMethod === 'cash' ? 'pending' : 'pending',
-      amount: grandTotal,
-      currency: 'XAF',
-    })
-
-    // Paiement cash → confirmer directement et rediriger
-    if (paymentMethod === 'cash') {
-      clearCart()
-      router.push(`/orders/${order.id}`)
-      return
-    }
-
-    // Paiement électronique → initier CinetPay
     try {
+      const { orderId } = await createOrder({
+        marketId,
+        deliveryType: deliveryMode,
+        paymentMethod,
+        notes,
+        items: items.map(item => ({
+          shopId: item.shopId,
+          productId: item.productId,
+          name: item.name,
+          image: item.image ?? null,
+          price: item.price,
+          quantity: item.quantity,
+        })),
+        subtotal: total(),
+        deliveryFee: fee,
+        total: grandTotal,
+      })
+
+      // Paiement cash → rediriger directement
+      if (paymentMethod === 'cash') {
+        clearCart()
+        router.push(`/orders/${orderId}`)
+        return
+      }
+
+      // Paiement électronique → initier CinetPay
       const res = await fetch('/api/payments/initiate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ orderId: order.id }),
+        body: JSON.stringify({ orderId }),
       })
-      const data = await res.json()
+      const resData = await res.json()
 
       if (!res.ok) {
-        setError(data.error ?? 'Erreur lors de l\'initiation du paiement.')
+        setError(resData.error ?? 'Erreur lors de l\'initiation du paiement.')
         setLoading(false)
         return
       }
 
       clearCart()
-      // Rediriger vers la page de paiement CinetPay
-      window.location.href = data.paymentUrl
-    } catch {
-      setError('Impossible de contacter le service de paiement. Réessayez.')
+      window.location.href = resData.paymentUrl
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Erreur lors de la commande.')
       setLoading(false)
     }
   }
